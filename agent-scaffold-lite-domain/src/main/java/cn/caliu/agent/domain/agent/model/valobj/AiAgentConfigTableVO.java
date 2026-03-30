@@ -1,5 +1,6 @@
 package cn.caliu.agent.domain.agent.model.valobj;
 
+import com.google.adk.runner.Runner;
 import lombok.Data;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class AiAgentConfigTableVO {
         private ChatModel chatModel;
         private List<Agent> agents;
         private List<AgentWorkflow> agentWorkflows;
-
+        private Runner runner;
         @Data
         public static class AiApi {
             private String baseUrl;
@@ -78,9 +79,6 @@ public class AiAgentConfigTableVO {
             private String outputKey;
         }
 
-        /**
-         * 智能体工作流
-         */
         @Data
         public static class AgentWorkflow {
             /**
@@ -93,6 +91,12 @@ public class AiAgentConfigTableVO {
             private Integer maxIterations = 3;
 
         }
+
+        @Data
+        public static class Runner {
+            private String agentName;
+        }
+
     }
 
 }

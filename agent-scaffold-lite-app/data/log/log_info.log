@@ -12417,3 +12417,120 @@ public class QuickSort {
     }
 }
 ```]
+26-03-30.15:19:45.092 [background-preinit] INFO  Version                - HV000001: Hibernate Validator 8.0.2.Final
+26-03-30.15:19:45.120 [main            ] INFO  AiAgentAutoConfigTest  - Starting AiAgentAutoConfigTest using Java 17.0.17 with PID 47024 (started by Administrator in D:\Project\agent-scaffold-lite\agent-scaffold-lite-app)
+26-03-30.15:19:45.121 [main            ] INFO  AiAgentAutoConfigTest  - The following 1 profile is active: "dev"
+26-03-30.15:19:45.612 [main            ] WARN  ClassPathMapperScanner - No MyBatis mapper was found in '[cn.caliu.agent]' package. Please check your configuration.
+26-03-30.15:19:45.729 [main            ] WARN  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ai.mcp.client.common.autoconfigure.annotations.McpClientAnnotationScannerAutoConfiguration' of type [org.springframework.ai.mcp.client.common.autoconfigure.annotations.McpClientAnnotationScannerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [clientAnnotatedMethodBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+26-03-30.15:19:45.852 [main            ] WARN  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'clientAnnotatedBeans' of type [org.springframework.ai.mcp.client.common.autoconfigure.annotations.McpClientAnnotationScannerAutoConfiguration$ClientMcpAnnotatedBeans] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [clientAnnotatedMethodBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+26-03-30.15:19:45.858 [main            ] WARN  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.ai.mcp.client.annotation-scanner-org.springframework.ai.mcp.client.common.autoconfigure.annotations.McpClientAnnotationScannerProperties' of type [org.springframework.ai.mcp.client.common.autoconfigure.annotations.McpClientAnnotationScannerProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [clientAnnotatedMethodBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+26-03-30.15:19:46.664 [main            ] WARN  SyncMcpSamplingProvider - No sampling methods found
+26-03-30.15:19:46.666 [main            ] WARN  SyncMcpElicitationProvider - No elicitation methods found
+26-03-30.15:19:46.793 [main            ] INFO  AiAgentAutoConfigTest  - Started AiAgentAutoConfigTest in 1.986 seconds (process running for 2.503)
+26-03-30.15:19:46.917 [main            ] INFO  AiAgentAutoConfig      - 智能体装配：[{"agent":{"agentDesc":"一个测试的智能体","agentId":"100001","agentName":"测试智能体01"},"appName":"testAgent","module":{"agentWorkflows":[{"description":"Executes a sequence of code writing, reviewing, and refactoring.","maxIterations":3,"name":"CodePipelineAgent","subAgents":["CodeWriterAgent","CodeReviewerAgent","CodeRefactorerAgent"],"type":"sequential"}],"agents":[{"description":"Writes initial Java code based on a specification.","instruction":"You are a Java Code Generator.\nBased *only* on the user's request, write Java code that fulfills the requirement.\nOutput *only* the complete Java code block, enclosed in triple backticks (```java ... ```).\n","name":"CodeWriterAgent","outputKey":"generated_code"},{"description":"Reviews code and provides feedback.","instruction":"You are an expert Java Code Reviewer.\nYour task is to provide constructive feedback on the provided code.\n\n**Code to Review:**\n```java\n{generated_code}\n```\n\n**Review Criteria:**\n1.  **Correctness:** Does the code work as intended? Are there logic errors?\n2.  **Readability:** Is the code clear and easy to understand? Follows Java style guidelines?\n3.  **Efficiency:** Is the code reasonably efficient? Any obvious performance bottlenecks?\n4.  **Edge Cases:** Does the code handle potential edge cases or invalid inputs gracefully?\n5.  **Best Practices:** Does the code follow common Java best practices?\n\n**Output:**\nProvide your feedback as a concise, bulleted list. Focus on the most important points for improvement.\nIf the code is excellent and requires no changes, simply state: \"No major issues found.\"\nOutput *only* the review comments or the \"No major issues\" statement.\n","name":"CodeReviewerAgent","outputKey":"review_comments"},{"description":"Refactors code based on review comments.","instruction":"You are a Java Code Refactoring AI.\nYour goal is to improve the given Java code based on the provided review comments.\n\n**Original Code:**\n```java\n{generated_code}\n```\n\n**Review Comments:**\n{review_comments}\n\n**Task:**\nCarefully apply the suggestions from the review comments to refactor the original code.\nIf the review comments state \"No major issues found,\" return the original code unchanged.\nEnsure the final code is complete, functional, and includes necessary imports and docstrings.\n\n**Output:**\nOutput *only* the final, refactored Java code block, enclosed in triple backticks (```java ... ```).\nDo not add any other text before or after the code block.\n","name":"CodeRefactorerAgent","outputKey":"refactored_code"}],"aiApi":{"apiKey":"sk-b5909159a5da494aa942fdfcb96e12ca","baseUrl":"https://dashscope.aliyuncs.com/compatible-mode/","completionsPath":"v1/chat/completions","embeddingsPath":"v1/embeddings"},"chatModel":{"model":"qwen-plus","toolMcpList":[{"sse":{"baseUri":"http://appbuilder.baidu.com/v2/ai_search/mcp/","name":"baidu-search","requestTimeout":5000,"sseEndpoint":"sse?api_key=bce-v3/ALTAK-8QWozmmGeUNiJtnLni2Zu/bb1660c8b8cfb9b4ce767d1b5e3ad84a5bfa08cb"}},{"sse":{"baseUri":"https://mcp.map.baidu.com/","name":"baidu-map","requestTimeout":5000,"sseEndpoint":"sse?ak=tV0NsP4Gmj8IL7mhvyjVZ7c6"}}]},"runner":{"agentName":"CodePipelineAgent"}}}]
+26-03-30.15:19:46.918 [main            ] INFO  AiApiNode              - Agent装配操作-AiApiNode
+26-03-30.15:19:47.007 [main            ] INFO  ChatModelNode          - Agent装配操作-AiApiNode
+26-03-30.15:19:47.394 [HttpClient-3-Worker-2] INFO  LifecycleInitializer   - Server response with Protocol: 2024-11-05, Capabilities: ServerCapabilities[completions=null, experimental={}, logging=null, prompts=PromptCapabilities[listChanged=false], resources=ResourceCapabilities[subscribe=false, listChanged=false], tools=ToolCapabilities[listChanged=false]], Info: Implementation[name=AIsearch, title=null, version=1.4.1] and Instructions null
+26-03-30.15:19:47.465 [main            ] INFO  ChatModelNode          - tool sse mcp initialize InitializeResult[protocolVersion=2024-11-05, capabilities=ServerCapabilities[completions=null, experimental={}, logging=null, prompts=PromptCapabilities[listChanged=false], resources=ResourceCapabilities[subscribe=false, listChanged=false], tools=ToolCapabilities[listChanged=false]], serverInfo=Implementation[name=AIsearch, title=null, version=1.4.1], instructions=null, meta=null]
+26-03-30.15:19:48.001 [HttpClient-4-Worker-1] INFO  LifecycleInitializer   - Server response with Protocol: 2024-11-05, Capabilities: ServerCapabilities[completions=null, experimental={}, logging=null, prompts=PromptCapabilities[listChanged=false], resources=ResourceCapabilities[subscribe=false, listChanged=false], tools=ToolCapabilities[listChanged=false]], Info: Implementation[name=mcp-server-baidu-maps, title=null, version=1.26.0] and Instructions This is a MCP server for Baidu Maps.
+26-03-30.15:19:48.233 [main            ] INFO  ChatModelNode          - tool sse mcp initialize InitializeResult[protocolVersion=2024-11-05, capabilities=ServerCapabilities[completions=null, experimental={}, logging=null, prompts=PromptCapabilities[listChanged=false], resources=ResourceCapabilities[subscribe=false, listChanged=false], tools=ToolCapabilities[listChanged=false]], serverInfo=Implementation[name=mcp-server-baidu-maps, title=null, version=1.26.0], instructions=This is a MCP server for Baidu Maps., meta=null]
+26-03-30.15:19:48.601 [main            ] INFO  AgentNode              - Agent装配操作-AgentNode
+26-03-30.15:19:48.628 [main            ] INFO  AgentWorkflowNode      - Agent装配操作-AgentWorkflowNode
+26-03-30.15:19:48.629 [main            ] INFO  SequentialAgentNode    - Agent装配操作-SequentialAgentNode
+26-03-30.15:19:48.629 [main            ] INFO  AbstractArmorySupport  - 成功注册Bean: CodePipelineAgent
+26-03-30.15:19:48.629 [main            ] INFO  RunnerNode             - Agent装配操作-RunnerNode
+26-03-30.15:19:48.632 [main            ] INFO  AbstractArmorySupport  - 成功注册Bean: 100001
+26-03-30.15:20:01.027 [main            ] INFO  SpringAIObservabilityHandler - Request completed successfully: model=openai, type=chat, duration=11973ms, tokens=5518
+26-03-30.15:26:20.269 [background-preinit] INFO  Version                - HV000001: Hibernate Validator 8.0.2.Final
+26-03-30.15:26:20.303 [main            ] INFO  AiAgentAutoConfigTest  - Starting AiAgentAutoConfigTest using Java 17.0.17 with PID 32364 (started by Administrator in D:\Project\agent-scaffold-lite\agent-scaffold-lite-app)
+26-03-30.15:26:20.304 [main            ] INFO  AiAgentAutoConfigTest  - The following 1 profile is active: "dev"
+26-03-30.15:26:20.788 [main            ] WARN  ClassPathMapperScanner - No MyBatis mapper was found in '[cn.caliu.agent]' package. Please check your configuration.
+26-03-30.15:26:20.903 [main            ] WARN  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ai.mcp.client.common.autoconfigure.annotations.McpClientAnnotationScannerAutoConfiguration' of type [org.springframework.ai.mcp.client.common.autoconfigure.annotations.McpClientAnnotationScannerAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [clientAnnotatedMethodBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+26-03-30.15:26:21.045 [main            ] WARN  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'clientAnnotatedBeans' of type [org.springframework.ai.mcp.client.common.autoconfigure.annotations.McpClientAnnotationScannerAutoConfiguration$ClientMcpAnnotatedBeans] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [clientAnnotatedMethodBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+26-03-30.15:26:21.051 [main            ] WARN  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'spring.ai.mcp.client.annotation-scanner-org.springframework.ai.mcp.client.common.autoconfigure.annotations.McpClientAnnotationScannerProperties' of type [org.springframework.ai.mcp.client.common.autoconfigure.annotations.McpClientAnnotationScannerProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor [clientAnnotatedMethodBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies/advisors. If this bean does not have to be post-processed, declare it with ROLE_INFRASTRUCTURE.
+26-03-30.15:26:21.883 [main            ] WARN  SyncMcpSamplingProvider - No sampling methods found
+26-03-30.15:26:21.886 [main            ] WARN  SyncMcpElicitationProvider - No elicitation methods found
+26-03-30.15:26:22.010 [main            ] INFO  AiAgentAutoConfigTest  - Started AiAgentAutoConfigTest in 2.031 seconds (process running for 2.558)
+26-03-30.15:26:22.180 [main            ] INFO  AiAgentAutoConfig      - 智能体装配：[{"agent":{"agentDesc":"单一智能体","agentId":"100002","agentName":"单一智能体"},"appName":"testSingleAgent","module":{"agents":[{"description":"西安电子科技大学就业服务","instruction":"通过百度检索，为用户提供西安电子科技大学就业服务，包括但不限于就业质量报告、平均薪水、读研深造比例等。\n","name":"singleAgent"}],"aiApi":{"apiKey":"sk-b5909159a5da494aa942fdfcb96e12ca","baseUrl":"https://dashscope.aliyuncs.com/compatible-mode/","completionsPath":"v1/chat/completions","embeddingsPath":"v1/embeddings"},"chatModel":{"model":"qwen-plus","toolMcpList":[{"sse":{"baseUri":"http://appbuilder.baidu.com/v2/ai_search/mcp/","name":"baidu-search","requestTimeout":5000,"sseEndpoint":"sse?api_key=bce-v3/ALTAK-8QWozmmGeUNiJtnLni2Zu/bb1660c8b8cfb9b4ce767d1b5e3ad84a5bfa08cb"}}]},"runner":{"agentName":"singleAgent"}}},{"agent":{"agentDesc":"一个测试的智能体","agentId":"100001","agentName":"测试智能体01"},"appName":"testAgent","module":{"agentWorkflows":[{"description":"Executes a sequence of code writing, reviewing, and refactoring.","maxIterations":3,"name":"CodePipelineAgent","subAgents":["CodeWriterAgent","CodeReviewerAgent","CodeRefactorerAgent"],"type":"sequential"}],"agents":[{"description":"Writes initial Java code based on a specification.","instruction":"You are a Java Code Generator.\nBased *only* on the user's request, write Java code that fulfills the requirement.\nOutput *only* the complete Java code block, enclosed in triple backticks (```java ... ```).\n","name":"CodeWriterAgent","outputKey":"generated_code"},{"description":"Reviews code and provides feedback.","instruction":"You are an expert Java Code Reviewer.\nYour task is to provide constructive feedback on the provided code.\n\n**Code to Review:**\n```java\n{generated_code}\n```\n\n**Review Criteria:**\n1.  **Correctness:** Does the code work as intended? Are there logic errors?\n2.  **Readability:** Is the code clear and easy to understand? Follows Java style guidelines?\n3.  **Efficiency:** Is the code reasonably efficient? Any obvious performance bottlenecks?\n4.  **Edge Cases:** Does the code handle potential edge cases or invalid inputs gracefully?\n5.  **Best Practices:** Does the code follow common Java best practices?\n\n**Output:**\nProvide your feedback as a concise, bulleted list. Focus on the most important points for improvement.\nIf the code is excellent and requires no changes, simply state: \"No major issues found.\"\nOutput *only* the review comments or the \"No major issues\" statement.\n","name":"CodeReviewerAgent","outputKey":"review_comments"},{"description":"Refactors code based on review comments.","instruction":"You are a Java Code Refactoring AI.\nYour goal is to improve the given Java code based on the provided review comments.\n\n**Original Code:**\n```java\n{generated_code}\n```\n\n**Review Comments:**\n{review_comments}\n\n**Task:**\nCarefully apply the suggestions from the review comments to refactor the original code.\nIf the review comments state \"No major issues found,\" return the original code unchanged.\nEnsure the final code is complete, functional, and includes necessary imports and docstrings.\n\n**Output:**\nOutput *only* the final, refactored Java code block, enclosed in triple backticks (```java ... ```).\nDo not add any other text before or after the code block.\n","name":"CodeRefactorerAgent","outputKey":"refactored_code"}],"aiApi":{"apiKey":"sk-b5909159a5da494aa942fdfcb96e12ca","baseUrl":"https://dashscope.aliyuncs.com/compatible-mode/","completionsPath":"v1/chat/completions","embeddingsPath":"v1/embeddings"},"chatModel":{"model":"qwen-plus","toolMcpList":[{"sse":{"baseUri":"http://appbuilder.baidu.com/v2/ai_search/mcp/","name":"baidu-search","requestTimeout":5000,"sseEndpoint":"sse?api_key=bce-v3/ALTAK-8QWozmmGeUNiJtnLni2Zu/bb1660c8b8cfb9b4ce767d1b5e3ad84a5bfa08cb"}},{"sse":{"baseUri":"https://mcp.map.baidu.com/","name":"baidu-map","requestTimeout":5000,"sseEndpoint":"sse?ak=tV0NsP4Gmj8IL7mhvyjVZ7c6"}}]},"runner":{"agentName":"CodePipelineAgent"}}}]
+26-03-30.15:26:22.182 [main            ] INFO  AiApiNode              - Agent装配操作-AiApiNode
+26-03-30.15:26:22.283 [main            ] INFO  ChatModelNode          - Agent装配操作-AiApiNode
+26-03-30.15:26:22.710 [HttpClient-3-Worker-0] INFO  LifecycleInitializer   - Server response with Protocol: 2024-11-05, Capabilities: ServerCapabilities[completions=null, experimental={}, logging=null, prompts=PromptCapabilities[listChanged=false], resources=ResourceCapabilities[subscribe=false, listChanged=false], tools=ToolCapabilities[listChanged=false]], Info: Implementation[name=AIsearch, title=null, version=1.4.1] and Instructions null
+26-03-30.15:26:22.781 [main            ] INFO  ChatModelNode          - tool sse mcp initialize InitializeResult[protocolVersion=2024-11-05, capabilities=ServerCapabilities[completions=null, experimental={}, logging=null, prompts=PromptCapabilities[listChanged=false], resources=ResourceCapabilities[subscribe=false, listChanged=false], tools=ToolCapabilities[listChanged=false]], serverInfo=Implementation[name=AIsearch, title=null, version=1.4.1], instructions=null, meta=null]
+26-03-30.15:26:22.974 [main            ] INFO  AgentNode              - Agent装配操作-AgentNode
+26-03-30.15:26:23.002 [main            ] INFO  AgentWorkflowNode      - Agent装配操作-AgentWorkflowNode
+26-03-30.15:26:23.002 [main            ] INFO  RunnerNode             - Agent装配操作-RunnerNode
+26-03-30.15:26:23.004 [main            ] INFO  AbstractArmorySupport  - 成功注册Bean: 100002
+26-03-30.15:26:23.004 [main            ] INFO  AiApiNode              - Agent装配操作-AiApiNode
+26-03-30.15:26:23.006 [main            ] INFO  ChatModelNode          - Agent装配操作-AiApiNode
+26-03-30.15:26:23.190 [HttpClient-5-Worker-2] INFO  LifecycleInitializer   - Server response with Protocol: 2024-11-05, Capabilities: ServerCapabilities[completions=null, experimental={}, logging=null, prompts=PromptCapabilities[listChanged=false], resources=ResourceCapabilities[subscribe=false, listChanged=false], tools=ToolCapabilities[listChanged=false]], Info: Implementation[name=AIsearch, title=null, version=1.4.1] and Instructions null
+26-03-30.15:26:23.268 [main            ] INFO  ChatModelNode          - tool sse mcp initialize InitializeResult[protocolVersion=2024-11-05, capabilities=ServerCapabilities[completions=null, experimental={}, logging=null, prompts=PromptCapabilities[listChanged=false], resources=ResourceCapabilities[subscribe=false, listChanged=false], tools=ToolCapabilities[listChanged=false]], serverInfo=Implementation[name=AIsearch, title=null, version=1.4.1], instructions=null, meta=null]
+26-03-30.15:26:23.801 [HttpClient-6-Worker-0] INFO  LifecycleInitializer   - Server response with Protocol: 2024-11-05, Capabilities: ServerCapabilities[completions=null, experimental={}, logging=null, prompts=PromptCapabilities[listChanged=false], resources=ResourceCapabilities[subscribe=false, listChanged=false], tools=ToolCapabilities[listChanged=false]], Info: Implementation[name=mcp-server-baidu-maps, title=null, version=1.26.0] and Instructions This is a MCP server for Baidu Maps.
+26-03-30.15:26:23.969 [main            ] INFO  ChatModelNode          - tool sse mcp initialize InitializeResult[protocolVersion=2024-11-05, capabilities=ServerCapabilities[completions=null, experimental={}, logging=null, prompts=PromptCapabilities[listChanged=false], resources=ResourceCapabilities[subscribe=false, listChanged=false], tools=ToolCapabilities[listChanged=false]], serverInfo=Implementation[name=mcp-server-baidu-maps, title=null, version=1.26.0], instructions=This is a MCP server for Baidu Maps., meta=null]
+26-03-30.15:26:24.143 [main            ] INFO  AgentNode              - Agent装配操作-AgentNode
+26-03-30.15:26:24.144 [main            ] INFO  AgentWorkflowNode      - Agent装配操作-AgentWorkflowNode
+26-03-30.15:26:24.144 [main            ] INFO  SequentialAgentNode    - Agent装配操作-SequentialAgentNode
+26-03-30.15:26:24.145 [main            ] INFO  AbstractArmorySupport  - 成功注册Bean: CodePipelineAgent
+26-03-30.15:26:24.145 [main            ] INFO  RunnerNode             - Agent装配操作-RunnerNode
+26-03-30.15:26:24.145 [main            ] INFO  AbstractArmorySupport  - 成功注册Bean: 100001
+26-03-30.15:27:29.785 [main            ] INFO  SpringAIObservabilityHandler - Request completed successfully: model=openai, type=chat, duration=65192ms, tokens=16901
+26-03-30.15:27:29.790 [main            ] INFO  AiAgentAutoConfigTest  - ===> 最终测试结果: [根据西安电子科技大学官方及权威媒体发布的《2022届》《2023届毕业生就业质量年度报告》及相关公开信息，现对近两年（2022届、2023届）**本科生与硕士生的就业质量**作如下客观、结构化评价：
+
+---
+
+### ✅ 一、核心就业指标对比（单位：%）
+
+| 指标 | 2022届 | 2023届 | 本硕差异分析 |
+|------|--------|--------|----------------|
+| **总体毕业去向落实率** | 96.50% | 96.79% | 稳步提升，保持高位；属全国“双一流”高校前列水平。 |
+| **本科生去向落实率** | ≈95.5%（推算） | **95.54%** | 基本稳定，略高于全国工科类本科平均水平（约92–94%）。 |
+| **硕士生去向落实率** | ≈98.0%（推算） | **98.26%** | 持续领跑，反映研究生培养与产业需求高度契合。 |
+| **本科生国内升学率** | ≈50–52%（多源印证） | **52.0%** | 超过半数选择深造，体现强学术底蕴与考研动员成效；主要去向：本校（约50%）、西交大、中科院、东南大学、中科大、电子科大等。 |
+| **硕士生升学率（含博士）** | ＜3% | **2.77%** | 极低——绝大多数硕士以就业为导向，定位清晰。 |
+| **本科生协议/合同就业率** | ≈43% | **42.98%** | 主力出口，与升学形成“双轨并行”。 |
+| **硕士生协议/合同就业率** | ≈95% | **95.4%** | 绝对主体，凸显工程硕士在就业市场的强劲竞争力。 |
+
+> 🔍 注：报告未统一公布**税前平均月薪**具体数值（如“XX元/月”），但多份分析指出：  
+> - 本科生签约起薪普遍集中在 **8K–12K/月**（一线及新一线城市IT/通信类岗位）；  
+> - 硕士生起薪显著更高，主流区间为 **15K–25K/月**（华为、中兴、航天科技集团等头部企业研发岗常见18K+）；  
+> - 部分紧缺方向（如集成电路、AI算法、网络安全）硕博薪资可达 **30K+/月**（含签字费、安家费等）。
+
+---
+
+### 🎯 二、就业质量亮点
+
+1. **行业集中度高、含金量足**  
+   - 本科生：制造业（33.35%）、信息传输/软件业（32.49%）为两大主干；  
+   - 硕士生：超 **70% 进入电子信息核心领域**（含中国电科、中国航天、华为、中兴、海思、寒武纪、长鑫存储等）；  
+   - “行业领军企业就业”人数达 **3172人**（2023届），覆盖全部世界500强/中国500强/电子信息百强。
+
+2. **服务国家战略能力突出**  
+   - 2023届 **1737名毕业生入职国家战略单位**（军工集团、重点院所、党政机关），占比近18%，居全国高校前列。
+
+3. **地域流向优质**  
+   - 本科生：西安（17.7%）、深圳（15.1%）、北京（6.0%）、上海（5.2%）、杭州（4.2%）；  
+   - 硕士生：珠三角（深圳+广州≈35%）、长三角（沪宁杭≈30%）、关中平原（西安+咸阳≈20%）构成“黄金三角”。
+
+4. **用人单位认可度高**  
+   - 华为连续多年为西电最大雇主（年均录用超500人），中兴、中国电科、航天科技集团等常年开展“定制化招聘”；  
+   - 就业满意度调查中，“专业对口率”“职业发展匹配度”持续高于92%。
+
+---
+
+### ⚠️ 三、值得关注的趋势与挑战
+
+- **结构性变化**：本科生进入“互联网开发岗”比例由2022届17.5%降至2023届9.8%，而**先进制造、芯片设计、智能硬件等硬科技岗位占比上升**，反映产业转型升级对人才需求的重塑。  
+- **深造竞争加剧**：52%本科深造率虽高，但名校/热门专业录取门槛同步提高，需强化科研训练与竞赛支撑。  
+- **薪资披露待完善**：学校报告侧重落实率与去向分布，**缺乏分学历、分专业、分行业的精细化薪酬统计**，影响学生精准择业参考。
+
+---
+
+### ✅ 总结评价  
+西安电子科技大学近两年本科与硕士就业质量呈现“**双高稳态**”：  
+🔹 **高落实率**（本95.5% / 硕98.3%）、  
+🔹 **高深造率**（本科超50%）、  
+🔹 **高质就业**（头部企业+国家战略单位占比超60%）、  
+🔹 **高成长性**（起薪与职业发展路径优于同类工科院校）。  
+
+尤其硕士生就业已形成“**电子信息铁军**”品牌效应，本科生则展现出“**升学有保障、就业有出路、发展有后劲**”的鲜明优势，充分印证其“信息特色鲜明、军工底色厚重、产教融合深入”的人才培养成效。
+
+如需获取某届报告原文PDF或分专业就业数据，我可继续为您定位官网链接。]
