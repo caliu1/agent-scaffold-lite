@@ -36,6 +36,10 @@
             <groupId>cn.caliu.agent</groupId>
             <artifactId>agent-scaffold-lite-domain</artifactId>
         </dependency>
+        <dependency>
+            <groupId>cn.caliu.agent</groupId>
+            <artifactId>agent-scaffold-lite-api</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
