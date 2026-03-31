@@ -15,7 +15,8 @@ ai:
               completions-path: v1/chat/completions
               embeddings-path: v1/embeddings
             chat-model:
-              model: qwen3-omni-flash
+              model: qwen-plus
+              # model: qwen3-omni-flash
               tool-mcp-list:
                 - sse:
                     name: baidu-search
@@ -24,11 +25,14 @@ ai:
                     request-timeout: 5000
                 - local:
                     name: myToolCallbackProvider
+              tool-skills-list:
+                - type: resource
+                  path: agent/skills
             agents:
               - name: singleAgent
-                description: 西安电子科技大学就业服务
+                description: 个人电脑管家
                 instruction: |
-                  通过百度检索，为用户提供西安电子科技大学就业服务，包括但不限于就业质量报告、平均薪水、读研深造比例等。
+                  一个个人电脑管家，提供各种电脑相关服务，如优化、检索等。
             runner:
               agent-name: singleAgent
               plugin-name-list:

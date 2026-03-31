@@ -11,19 +11,13 @@ import org.springframework.core.io.ClassPathResource;
 
 import java.util.ArrayList;
 
-/**
- * Spring Ai Tool
- *
- * @author xiaofuge bugstack.cn @小傅哥
- * 2025/12/14 09:51
- */
 @Slf4j
 public class SpringAiToolTest {
 
     public static void main(String[] args) {
         OpenAiApi openAiApi = OpenAiApi.builder()
-                .baseUrl("https://apis.itedus.cn")
-                .apiKey("sk-iVDf66xXEatHFxnK9dFc96Bb5c904a519eC0F76f43A01846")
+                .baseUrl("https://dashscope.aliyuncs.com/compatible-mode/")
+                .apiKey("sk-b5909159a5da494aa942fdfcb96e12ca")
                 .completionsPath("v1/chat/completions")
                 .embeddingsPath("v1/embeddings")
                 .build();
@@ -40,7 +34,7 @@ public class SpringAiToolTest {
         ChatModel chatModel = OpenAiChatModel.builder()
                 .openAiApi(openAiApi)
                 .defaultOptions(OpenAiChatOptions.builder()
-                        .model("gpt-4.1")
+                        .model("qwen-plus")
                         .toolCallbacks(new ArrayList<>(){{
                             add(toolCallback02);
                         }})
@@ -48,6 +42,7 @@ public class SpringAiToolTest {
                 .build();
 
         String call = chatModel.call("基于 skill 解答，电脑性能优化");
+        // String call = chatModel.call("你有什么技能");
 
         log.info("测试结果:{}", call);
     }

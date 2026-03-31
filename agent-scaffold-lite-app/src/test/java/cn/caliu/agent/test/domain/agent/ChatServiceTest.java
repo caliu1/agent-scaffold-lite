@@ -28,8 +28,8 @@ public class ChatServiceTest {
 
     @Test
     public void test_handleMessage_01() {
-        List<String> message = chatService.handleMessage("100002", "caliu", "你具备哪些能力");
-        log.info("测试结果:{}", JSON.toJSONString(message));
+        List<String> message = chatService.handleMessage("100002", "caliu", "你有什么skill");
+        // log.info("测试结果:{}", JSON.toJSONString(message));
     }
 
     @Test

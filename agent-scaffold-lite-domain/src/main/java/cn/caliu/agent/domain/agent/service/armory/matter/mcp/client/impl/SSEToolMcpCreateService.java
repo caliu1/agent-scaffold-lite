@@ -1,7 +1,7 @@
 package cn.caliu.agent.domain.agent.service.armory.matter.mcp.client.impl;
 
 import cn.caliu.agent.domain.agent.model.valobj.AiAgentConfigTableVO;
-import cn.caliu.agent.domain.agent.service.armory.matter.mcp.client.ToolMcpCreateService;
+import cn.caliu.agent.domain.agent.service.armory.matter.mcp.client.IToolMcpCreateService;
 import io.modelcontextprotocol.client.McpClient;
 import io.modelcontextprotocol.client.McpSyncClient;
 import io.modelcontextprotocol.client.transport.HttpClientSseClientTransport;
@@ -17,7 +17,7 @@ import java.time.Duration;
 
 @Slf4j
 @Service
-public class SSEToolMcpCreateService implements ToolMcpCreateService {
+public class SSEToolMcpCreateService implements IToolMcpCreateService {
     @Override
     public ToolCallback[] buildToolCallback(AiAgentConfigTableVO.Module.ChatModel.ToolMcp toolMcp) throws Exception{
         AiAgentConfigTableVO.Module.ChatModel.ToolMcp.SSEServerParameters sseConfig = toolMcp.getSse();

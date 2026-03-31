@@ -1,7 +1,7 @@
 package cn.caliu.agent.domain.agent.service.armory.matter.mcp.client.factory;
 
 import cn.caliu.agent.domain.agent.model.valobj.AiAgentConfigTableVO;
-import cn.caliu.agent.domain.agent.service.armory.matter.mcp.client.ToolMcpCreateService;
+import cn.caliu.agent.domain.agent.service.armory.matter.mcp.client.IToolMcpCreateService;
 import cn.caliu.agent.domain.agent.service.armory.matter.mcp.client.impl.LocalToolMcpCreateService;
 import cn.caliu.agent.domain.agent.service.armory.matter.mcp.client.impl.SSEToolMcpCreateService;
 import cn.caliu.agent.domain.agent.service.armory.matter.mcp.client.impl.StdioToolMcpCreateService;
@@ -24,7 +24,7 @@ public class DefaultMcpClientFactory {
     @Resource
     private StdioToolMcpCreateService stdioToolMcpCreateService;
 
-    public ToolMcpCreateService getToolMcpCreateService(AiAgentConfigTableVO.Module.ChatModel.ToolMcp toolMcp) {
+    public IToolMcpCreateService getToolMcpCreateService(AiAgentConfigTableVO.Module.ChatModel.ToolMcp toolMcp) {
         if (null != toolMcp.getLocal()) return localToolMcpCreateService;
         if (null != toolMcp.getSse()) return sseToolMcpCreateService;
         if (null != toolMcp.getStdio()) return stdioToolMcpCreateService;

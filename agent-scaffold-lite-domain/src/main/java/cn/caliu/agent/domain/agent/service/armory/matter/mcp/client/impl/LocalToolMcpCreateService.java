@@ -1,7 +1,7 @@
 package cn.caliu.agent.domain.agent.service.armory.matter.mcp.client.impl;
 
 import cn.caliu.agent.domain.agent.model.valobj.AiAgentConfigTableVO;
-import cn.caliu.agent.domain.agent.service.armory.matter.mcp.client.ToolMcpCreateService;
+import cn.caliu.agent.domain.agent.service.armory.matter.mcp.client.IToolMcpCreateService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.tool.ToolCallback;
 import org.springframework.ai.tool.ToolCallbackProvider;
@@ -12,7 +12,7 @@ import javax.annotation.Resource;
 
 @Slf4j
 @Service
-public class LocalToolMcpCreateService implements ToolMcpCreateService {
+public class LocalToolMcpCreateService implements IToolMcpCreateService {
 
     @Resource
     private ApplicationContext applicationContext;
