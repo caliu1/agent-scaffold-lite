@@ -20,12 +20,7 @@ import javax.annotation.Resource;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
-/**
- * 默认的装配工厂
- *
- * @author xiaofuge bugstack.cn @小傅哥
- * 2025/12/17 08:16
- */
+
 @Service
 public class DefaultArmoryFactory {
 

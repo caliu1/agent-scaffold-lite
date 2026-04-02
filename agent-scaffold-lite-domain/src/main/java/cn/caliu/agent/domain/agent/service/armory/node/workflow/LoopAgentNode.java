@@ -34,7 +34,7 @@ public class LoopAgentNode extends AbstractArmorySupport {
                 .name(currentAgentWorkflow.getName())
                 .description(currentAgentWorkflow.getDescription())
                 .subAgents(subAgents)
-                .maxIterations(5)
+                .maxIterations(currentAgentWorkflow.getMaxIterations())
                 .build();
 
         dynamicContext.getAgentGroup().put(currentAgentWorkflow.getName(), loopAgent);

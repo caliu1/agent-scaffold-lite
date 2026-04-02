@@ -109,11 +109,11 @@ public class AiAgentAutoConfigTest {
         InMemoryRunner runner = aiAgentRegisterVO.getRunner();
 
         Session session = runner.sessionService()
-                .createSession(appName, "xiaofuge")
+                .createSession(appName, "caliu")
                 .blockingGet();
 
         Content userMsg = Content.fromParts(Part.fromText("你具备哪些能力"));
-        Flowable<Event> events = runner.runAsync("xiaofuge", session.id(), userMsg);
+        Flowable<Event> events = runner.runAsync("caliu", session.id(), userMsg);
 
         List<String> outputs = new ArrayList<>();
         events.blockingForEach(event -> outputs.add(event.stringifyContent()));
