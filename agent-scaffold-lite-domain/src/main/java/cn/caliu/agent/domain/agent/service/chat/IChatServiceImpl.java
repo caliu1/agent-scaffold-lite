@@ -8,6 +8,7 @@ import cn.caliu.agent.domain.agent.service.IChatService;
 import cn.caliu.agent.domain.agent.service.armory.factory.DefaultArmoryFactory;
 import cn.caliu.agent.types.enums.ResponseCode;
 import cn.caliu.agent.types.exception.AppException;
+import com.google.adk.agents.RunConfig;
 import com.google.adk.events.Event;
 import com.google.adk.runner.InMemoryRunner;
 import com.google.adk.sessions.Session;
@@ -109,8 +110,11 @@ public class IChatServiceImpl implements IChatService {
 
         InMemoryRunner runner = aiAgentRegisterVO.getRunner();
 
+        RunConfig runConfig = RunConfig.builder()
+                .setStreamingMode(RunConfig.StreamingMode.SSE)
+                .build();
         Content userMsg = Content.fromParts(Part.fromText(message));
-        return runner.runAsync(userId, sessionId, userMsg);
+        return runner.runAsync(userId, sessionId, userMsg, runConfig);
     }
 
     @Override
