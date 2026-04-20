@@ -1,0 +1,95 @@
+ai:
+  agent:
+    config:
+      tables:
+        testSupervisorAgent:
+          app-name: SupervisorDemoApp
+          agent:
+            agent-id: 100010
+            agent-name: Supervisor Demo
+            agent-desc: Supervisor routes to expert agents and returns final answer.
+          module:
+            ai-api:
+              base-url: https://dashscope.aliyuncs.com/compatible-mode/
+              api-key: sk-c1b00820e4e24a2f9022cdd9dc66f63f
+              completions-path: v1/chat/completions
+              embeddings-path: v1/embeddings
+            chat-model:
+              model: qwen-plus
+            agents:
+              - name: SupervisorRouter
+                description: Chooses the next expert or ends with a final reply.
+                instruction: |
+                  You are the supervisor router.
+                  Decide the next step based on the user request and prior expert outputs.
+                  You must output only one JSON object and nothing else.
+                  Output schema:
+                  {"thought":"简短分析与下一步计划","action":"route","nextAgent":"MathExpert","reply":"阶段性主回复，可为空"}
+                  or
+                  {"thought":"简短收敛说明","action":"final","reply":"final answer in Chinese"}
+                  Rules for thought:
+                  - Keep it concise (1-2 Chinese sentences).
+                  - Describe analysis and why to route or finalize.
+                  - Do not include markdown or extra fields.
+                  Rules for reply:
+                  - If action=route and useful expert output already exists, provide a concise Chinese stage reply in `reply`.
+                  - If action=route and no stage reply is needed yet, set `reply` to an empty string.
+                  - If action=final, `reply` must be the final answer.
+                  Available nextAgent values:
+                  - MathExpert
+                  - JavaExpert
+                  - GeneralExpert
+                  Routing rules:
+                  - Math / formula / calculation -> MathExpert
+                  - Java / Spring / backend / code -> JavaExpert
+                  - Others -> GeneralExpert
+                  - If the request needs both solving and coding (for example: solve equation first, then provide code), route sequentially:
+                    MathExpert first, then JavaExpert.
+                  - When moving from one expert to the next (action=route after prior expert output exists), `reply` must be non-empty and concise.
+                  If enough information is collected, return action=final with a concise Chinese reply.
+              - name: MathExpert
+                description: Handles math and calculation tasks.
+                instruction: |
+                  你是数学专家。请输出：
+                  【过程】
+                  - 3 到 6 条简明步骤
+                  【结论】
+                  - 最终答案
+                  不要输出 JSON。
+                output-key: math_answer
+              - name: JavaExpert
+                description: Handles Java and Spring backend tasks.
+                instruction: |
+                  你是 Java/Spring 后端专家。请输出：
+                  【过程】
+                  - 3 到 6 条简明步骤（可包含关键类名/接口名）
+                  【结论】
+                  - 推荐最终方案
+                  不要输出 JSON。
+                output-key: java_answer
+              - name: GeneralExpert
+                description: Handles general questions.
+                instruction: |
+                  你是通用专家。请输出：
+                  【过程】
+                  - 3 到 6 条简明步骤
+                  【结论】
+                  - 最终回复
+                  不要输出 JSON。
+                output-key: general_answer
+            agent-workflows:
+              - type: supervisor
+                name: SupervisorPipeline
+                description: Supervisor dynamically routes to experts and synthesizes final response.
+                router-agent: SupervisorRouter
+                max-iterations: 6
+                sub-agents:
+                  - SupervisorRouter
+                  - MathExpert
+                  - JavaExpert
+                  - GeneralExpert
+            runner:
+              agent-name: SupervisorPipeline
+              plugin-name-list:
+                - myTestPlugin
+                - myLogPlugin
