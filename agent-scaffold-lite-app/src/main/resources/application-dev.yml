@@ -19,11 +19,12 @@ spring:
 #      - classpath:agent/test-agent.yml
 #      - classpath:agent/test-single-agent.yml
 #      - classpath:agent/parallel_research_app.yml
+      - classpath:agent/agent-config-writer-agent.yml
       - classpath:agent/test-supervisor-agent.yml
   datasource:
     username: root
-    password: 123456
-    url: jdbc:mysql://127.0.0.1:3306/xfg_frame_archetype?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC&useSSL=true
+    password: 1234
+    url: jdbc:mysql://127.0.0.1:3306/agent_scaffold_lite?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC&useSSL=true
     driver-class-name: com.mysql.cj.jdbc.Driver
   hikari:
     pool-name: Retail_HikariCP

@@ -231,7 +231,7 @@ public class AgentServiceController implements IAgentService {
             return dto;
         }
 
-        dto.setType(event.finalResponse() ? "final" : "thinking");
+        dto.setType(event.finalResponse() ? "final" : "reply");
         dto.setContent(content);
         return dto;
     }
