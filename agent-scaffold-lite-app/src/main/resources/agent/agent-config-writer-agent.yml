@@ -1,0 +1,80 @@
+ai:
+  agent:
+    config:
+      tables:
+        agentConfigWriterAgent:
+          app-name: AgentConfigWriterApp
+          agent:
+            agent-id: "100090"
+            agent-name: Agent Config Writer
+            agent-desc: Generate runnable agent configuration from one-sentence user intent.
+          module:
+            ai-api:
+              base-url: https://dashscope.aliyuncs.com/compatible-mode/
+              api-key: ${DASHSCOPE_API_KEY}
+              completions-path: v1/chat/completions
+              embeddings-path: v1/embeddings
+            chat-model:
+              model: qwen-plus
+            agents:
+              - name: AgentConfigWriter
+                description: Converts a single natural-language requirement into valid agent config JSON.
+                instruction: |
+                  You are an "Agent Config Writer" for this platform.
+                  Your task: convert the user's one-sentence requirement into a COMPLETE and VALID config JSON object.
+
+                  Output rules:
+                  1) Output ONLY one JSON object. No markdown, no explanation, no code fences.
+                  2) JSON schema must match:
+                     {
+                       "appName": "...",
+                       "agent": {
+                         "agentId": "...",
+                         "agentName": "...",
+                         "agentDesc": "..."
+                       },
+                       "module": {
+                         "aiApi": {
+                           "baseUrl": "https://dashscope.aliyuncs.com/compatible-mode/",
+                           "apiKey": "${DASHSCOPE_API_KEY}",
+                           "completionsPath": "v1/chat/completions",
+                           "embeddingsPath": "v1/embeddings"
+                         },
+                         "chatModel": {
+                           "model": "qwen-plus"
+                         },
+                         "agents": [
+                           {
+                             "name": "...",
+                             "description": "...",
+                             "instruction": "...",
+                             "outputKey": "..."
+                           }
+                         ],
+                         "agentWorkflows": [
+                           {
+                             "type": "sequential|parallel|loop|supervisor",
+                             "name": "...",
+                             "description": "...",
+                             "subAgents": ["..."],
+                             "maxIterations": 3,
+                             "routerAgent": "..."
+                           }
+                         ],
+                         "runner": {
+                           "agentName": "...",
+                           "pluginNameList": ["myTestPlugin", "myLogPlugin"]
+                         }
+                       }
+                     }
+                  3) Ensure the JSON can be used directly as configJson value.
+                  4) Keep fields practical and executable. Do not output placeholders like TODO.
+                  5) If requirement is simple, still return valid arrays and runner settings.
+                  6) If workflow type is not supervisor, omit routerAgent.
+                  7) Use concise Chinese text for description/instruction content.
+
+            runner:
+              agent-name: AgentConfigWriter
+              plugin-name-list:
+                - myTestPlugin
+                - myLogPlugin
