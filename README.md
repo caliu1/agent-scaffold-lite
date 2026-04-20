@@ -11,6 +11,18 @@
 - Agent 广场能力：我的 Agent / 广场 Agent 隔离展示与发布控制
 - 前端创建页增强：接入固定系统 Agent（Agent Config Writer）辅助生成配置
 
+
+## v1.1 更新（简述）
+
+v1.1 重点引入 Supervisor 动态路由能力和标准化流式事件：
+
+- 新增 `SupervisorRoutingAgent`，支持主 Agent 根据上下文动态选择子 Agent
+- `chat_stream` 支持 `thinking / route / reply / final` 事件类型
+- 支持主 Agent 阶段性回复与最终回复的流式输出
+
+详细内容请查看：
+- [v1.1 详细更新日志](./docs/changelog/v1.1.md)
+
 ## v1.2 更新（简述）
 
 v1.2 聚焦“动态装配 + 配置中心 + 广场化 + 创建体验增强”，核心变化如下：
@@ -22,28 +34,8 @@ v1.2 聚焦“动态装配 + 配置中心 + 广场化 + 创建体验增强”，
 - 流式输出链路继续增强，前后端按 SSE 事件稳定拼装
 
 详细内容请查看：
-
 - [v1.2 详细更新日志](./docs/changelog/v1.2.md)
-- [v1.1 详细更新日志](./docs/changelog/v1.1.md)
 
-## 目录建议
-
-- `agent-scaffold-lite-app`：应用启动与系统配置
-- `agent-scaffold-lite-domain`：领域逻辑与工作流编排
-- `agent-scaffold-lite-trigger`：HTTP 触发层（含 SSE）
-- `agent-scaffold-lite-infrastructure`：持久化与仓储实现
-- `agent-scaffold-lite-api`：接口定义与 DTO
-- `agent-scaffold-lite-types`：通用类型与常量
-
-v1.1 重点引入 Supervisor 动态路由能力和标准化流式事件：
-
-- 新增 `SupervisorRoutingAgent`，支持主 Agent 根据上下文动态选择子 Agent
-- `chat_stream` 支持 `thinking / route / reply / final` 事件类型
-- 支持主 Agent 阶段性回复与最终回复的流式输出
-
-详细内容请查看：
-
-- [v1.1 详细更新日志](./docs/changelog/v1.1.md)
 
 ## 目录建议
 
